@@ -1,0 +1,26 @@
+plugins {
+    id 'application'
+    id 'org.graalvm.buildtools.native' version '0.9.12'
+}
+
+repositories {
+    mavenCentral()
+    gradlePluginPortal()
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.13.2'
+
+    implementation 'com.google.guava:guava:30.1.1-jre'
+    implementation group: 'commons-cli', name: 'commons-cli', version: '1.5.0'
+    implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.10.0'
+    implementation group: 'com.google.flogger', name: 'flogger', version: '0.7.4'
+    implementation group: 'com.google.flogger', name: 'flogger-system-backend', version: '0.7.4'
+    implementation group: 'org.json', name: 'json', version: '20220320'
+}
+
+jar {
+    manifest {
+        attributes('Main-Class': 'com.vladmarica.rbxuploader.App')
+    }
+}
